@@ -102,9 +102,11 @@ class VideoPlayer:
     def show_playing(self):
         """Displays video currently playing."""
         if self.all_playing() is not None:
-            print("Currently playing: {} ({}) [{}]".format(self.all_playing()._title, self.all_playing()._video_id, self.all_playing()._tags))
+            tup = self.all_playing()._tags
+            print("Currently playing: {} ({}) [{}]".format(self.all_playing()._title, self.all_playing()._video_id, " ".join(tup)))
         elif self.all_paused() is not None:
-            print("Currently playing: {} ({}) [{}]".format(self.all_paused()._title, self.all_paused()._video_id, self.all_paused()._tags))
+            tup = self.all_paused()._tags
+            print("Currently playing: {} ({}) [{}] - PAUSED".format(self.all_paused()._title, self.all_paused()._video_id, " ".join(tup)))
         else:
             print("No video is currently playing")
         #print("show_playing needs implementation")
