@@ -15,8 +15,9 @@ class VideoPlayer:
 
     def show_all_videos(self):
         """Returns all videos."""
-
-        print("show_all_videos needs implementation")
+        for video in self._video_library.get_all_videos():
+            print(str(video))
+        #print("show_all_videos needs implementation")
 
     def play_video(self, video_id):
         """Plays the respective video.
