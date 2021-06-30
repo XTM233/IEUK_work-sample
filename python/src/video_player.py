@@ -29,7 +29,7 @@ class VideoPlayer:
         "Return video object current playing"
         videos = self._video_library.get_all_videos()
         for v in videos:
-            if v.status() == 1:
+            if v._status == 1:
                 return(v)
         return(None)
     def play_video(self, video_id):
