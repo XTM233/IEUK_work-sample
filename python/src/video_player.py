@@ -5,6 +5,7 @@ import random
 import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
+
 class VideoPlayer:
     """A class used to represent a Video Player."""
 
@@ -24,7 +25,7 @@ class VideoPlayer:
             video_id = v._video_id
             tags_tup = v._tags
             tags_str = " ".join(tags_tup)
-            print(template.format(title,video_id,tags_str))
+            print(template.format(title, video_id, tags_str))
         # Approach 2 directly read from txt file
         #my_file = os.path.join(THIS_FOLDER, 'videos.txt')
         #f = open(my_file, "r")
@@ -61,11 +62,11 @@ class VideoPlayer:
             print("Cannot play video: Video does not exist")
         else:
             if self.all_playing() is not None:
-                self.all_playing()._status = 0
                 print("Stopping video: {}".format(self.all_playing()._title))
+                self.all_playing()._status = 0
             elif self.all_paused() is not None:
-                self.all_paused().status = 0
                 print("Stopping video: {}".format(self.all_paused()._title))
+                self.all_paused().status = 0
             print("Playing video: {}".format(video._title))
             video._status = 1
         #print("play_video needs implementation")
@@ -75,13 +76,13 @@ class VideoPlayer:
         if self.all_playing() is None:
             print("Cannot stop video: No video is currently playing")
         else:
-            self.all_playing()._status = 0
             print("Stopping video: {}".format(self.all_playing()._title))
+            self.all_playing()._status = 0
         #print("stop_video needs implementation")
 
     def play_random_video(self):
         """Plays a random video from the video library."""
-        video = random.choice(self._video_librrary.get_all_videos())
+        video = random.choice(self._video_library.get_all_videos())
         self.play_video(video._video_id)
         #print("play_random_video needs implementation")
 
@@ -90,8 +91,8 @@ class VideoPlayer:
         if self.all_paused() is not None:
             print("Video already paused: {}".format(self.all_paused()._title))
         elif self.all_playing() is not None:
-            self.all_playing()._status = 2
             print("Pausing video: {}".format(self.all_playing()._title))
+            self.all_playing()._status = 2
         else:
             print("Cannot pause video: No video is currently playing")
         #print("pause_video needs implementation")
@@ -101,8 +102,8 @@ class VideoPlayer:
         if self.all_playing() is not None:
             print("Cannot continue video: Video is not paused")
         elif self.all_paused() is not None:
-            self.all_paused()._status = 1
             print("Continuing video: {}".format(self.all_paused()._title))
+            self.all_paused()._status = 1
         else:
             print("Cannot continue video: No video is currently playing")
         print("continue_video needs implementation")

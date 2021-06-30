@@ -11,7 +11,8 @@ if __name__ == "__main__":
     parser = CommandParser(video_player)
     while True:
         command = input("YT> ")
-        if command.upper() == "EXIT": #to include lower cases
+        if command.upper() == "EXIT": 
+        #to include lower cases
             break
         try:
             parser.execute_command(command.split())
