@@ -42,7 +42,7 @@ class VideoPlayer:
         if video == None:
             print("Cannot play video: Video does not exist")
         else:
-            if self.all_playing() != None：
+            if self.all_playing() != None:
                 print("Stopping video: {}".format(self.all_playing().title()))
                 self.all_playing().status = 0
             print("Playing video: {}".format(video.title()))
