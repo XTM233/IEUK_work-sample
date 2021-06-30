@@ -14,6 +14,7 @@ class Video:
         # Turn the tags into a tuple here so it's unmodifiable,
         # in case the caller changes the 'video_tags' they passed to us
         self._tags = tuple(video_tags)
+        self._status = 0
 
     @property
     def title(self) -> str:
@@ -29,3 +30,8 @@ class Video:
     def tags(self) -> Sequence[str]:
         """Returns the list of tags of a video."""
         return self._tags
+    
+    @property
+    def status(self) -> int:
+        """Return the status of the video, 0 for stopped, 1 for playing, 2 for paused"""
+        return self._status

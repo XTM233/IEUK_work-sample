@@ -25,14 +25,29 @@ class VideoPlayer:
             print(template.format(video_info[0].strip(),video_info[1].strip(),video_info[2].strip()))
 
         #print("show_all_videos needs implementation")
-
+    def all_playing(self):
+        "Return video object current playing"
+        videos = self._video_library.get_all_videos()
+        for v in videos:
+            if v.status() == 1:
+                return(v)
+        return(None)
     def play_video(self, video_id):
         """Plays the respective video.
 
         Args:
             video_id: The video_id to be played.
         """
-        print("play_video needs implementation")
+        video = self._video_library.get_video(video_id)
+        if video == None:
+            print("Cannot play video: Video does not exist")
+        else:
+            if self.all_playing() != None：
+                print("Stopping video: {}".format(self.all_playing().title()))
+                self.all_playing().status = 0
+            print("Playing video: {}".format(video.title()))
+            video.status() = 1
+        #print("play_video needs implementation")
 
     def stop_video(self):
         """Stops the current video."""
