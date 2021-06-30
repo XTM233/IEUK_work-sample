@@ -1,7 +1,8 @@
 """A video player class."""
 
 from .video_library import VideoLibrary
-
+import os
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
 class VideoPlayer:
     """A class used to represent a Video Player."""
@@ -15,8 +16,14 @@ class VideoPlayer:
 
     def show_all_videos(self):
         """Returns all videos."""
-        for video in self._video_library.get_all_videos():
-            print(str(video))
+        # Approach 2 directly read from txt file
+        my_file = os.path.join(THIS_FOLDER, 'videos.txt')
+        f = open(my_file, "r")
+        template = "{} ({}) [{}]"
+        for video in f.readlines():
+            video_info = video.split("|")
+            print(template.format(video_info[0].strip(),video_info[1].strip(),video_info[2].strip()))
+
         #print("show_all_videos needs implementation")
 
     def play_video(self, video_id):
