@@ -19,6 +19,7 @@ class VideoPlayer:
     def show_all_videos(self):
         """Returns all videos."""
         # Approach 1
+        print("Here's a list of all available videos")
         template = "{} ({}) [{}]"
         for v in self._video_library.get_all_videos():
             title = v._title
@@ -66,7 +67,7 @@ class VideoPlayer:
                 self.all_playing()._status = 0
             elif self.all_paused() is not None:
                 print("Stopping video: {}".format(self.all_paused()._title))
-                self.all_paused().status = 0
+                self.all_paused()._status = 0
             print("Playing video: {}".format(video._title))
             video._status = 1
         #print("play_video needs implementation")
@@ -106,7 +107,7 @@ class VideoPlayer:
             self.all_paused()._status = 1
         else:
             print("Cannot continue video: No video is currently playing")
-        print("continue_video needs implementation")
+        #print("continue_video needs implementation")
 
     def show_playing(self):
         """Displays video currently playing."""
