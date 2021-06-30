@@ -43,9 +43,9 @@ class VideoPlayer:
             print("Cannot play video: Video does not exist")
         else:
             if self.all_playing() != None:
-                print("Stopping video: {}".format(self.all_playing().title()))
+                print("Stopping video: {}".format(self.all_playing()._title))
                 self.all_playing()._status = 0
-            print("Playing video: {}".format(video.title()))
+            print("Playing video: {}".format(video._title))
             video._status = 1
         #print("play_video needs implementation")
 
