@@ -19,7 +19,7 @@ class VideoPlayer:
     def show_all_videos(self):
         """Returns all videos."""
         # Approach 1
-        print("Here's a list of all available videos")
+        print("Here's a list of all available videos:")
         template = "{} ({}) [{}]"
         for v in self._video_library.get_all_videos():
             title = v._title
