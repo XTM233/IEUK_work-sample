@@ -44,9 +44,9 @@ class VideoPlayer:
         else:
             if self.all_playing() != None:
                 print("Stopping video: {}".format(self.all_playing().title()))
-                self.all_playing().status = 0
+                self.all_playing()._status = 0
             print("Playing video: {}".format(video.title()))
-            video.status() = 1
+            video._status = 1
         #print("play_video needs implementation")
 
     def stop_video(self):
