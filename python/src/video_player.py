@@ -17,13 +17,21 @@ class VideoPlayer:
 
     def show_all_videos(self):
         """Returns all videos."""
-        # Approach 2 directly read from txt file
-        my_file = os.path.join(THIS_FOLDER, 'videos.txt')
-        f = open(my_file, "r")
+        # Approach 1
         template = "{} ({}) [{}]"
-        for video in f.readlines():
-            video_info = video.split("|")
-            print(template.format(video_info[0].strip(),video_info[1].strip(),video_info[2].strip()))
+        for v in self._video_library.get_all_videos():
+            title = v._title
+            video_id = v._video_id
+            tags_tup = v._tags
+            tags_str = " ".join(tags_tup)
+            print(template.format(title,video_id,tags_str))
+        # Approach 2 directly read from txt file
+        #my_file = os.path.join(THIS_FOLDER, 'videos.txt')
+        #f = open(my_file, "r")
+        #template = "{} ({}) [{}]"
+        #for video in f.readlines():
+        #    video_info = video.split("|")
+        #    print(template.format(video_info[0].strip(),video_info[1].strip(),video_info[2].strip()))
 
         #print("show_all_videos needs implementation")
     def all_playing(self):
