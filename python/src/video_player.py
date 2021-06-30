@@ -21,12 +21,16 @@ class VideoPlayer:
         # Approach 1
         print("Here's a list of all available videos:")
         template = "{} ({}) [{}]"
+        str_lst = []
         for v in self._video_library.get_all_videos():
             title = v._title
             video_id = v._video_id
             tags_tup = v._tags
             tags_str = " ".join(tags_tup)
-            print(template.format(title, video_id, tags_str))
+            str_lst.append(template.format(title, video_id, tags_str))
+        str_lst.sort()
+        for s in str_lst:
+            print(s)
         # Approach 2 directly read from txt file
         #my_file = os.path.join(THIS_FOLDER, 'videos.txt')
         #f = open(my_file, "r")
